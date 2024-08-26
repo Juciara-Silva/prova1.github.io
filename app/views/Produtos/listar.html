@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'Listagem' /}
+
+<form action="@{Produtos.listar}">
+	
+
+	</form>
+
+
+<p>Produtos</p>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>nome:</th>
+			<th>preço:</th>
+			<th>quantidade:</th>
+			<th>categoria:</th>
+			<th>Ações:</th>
+			
+		</tr>
+	</thead>
+		#{list produtos, as:'p'}
+		
+			<tr>
+				<td>${p.nome}</td>
+				<td>${p.preço}</td>
+				<td>${p.quantidade}</td>
+				<td>${p.categoria}</td>
+				
+				<td>
+					<a title="Remover" href="@{Produtos.remover(p.id)}">Excluir</a>
+				</td>
+				
+			</tr>
+			
+			
+			
+		#{/list}
+	<tbody>
+	
+	<tr>
+		<td>Total:</td>
+		<td>${totalQuantidade}</td>
+	</tr>
+	
+	</tbody>
+</table>
+<a  href="@{Produtos.form}">Nova produto</a>

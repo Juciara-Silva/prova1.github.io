@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:'formulario' /}
+
+
+<p>Preencha os dados</p>
+
+
+<form action="@{Produtos.salvar()}">
+
+		<input type="hidden" name="p.id" value="${p?.id}" />
+
+	<div class="mb-3">
+		<label class="form-label">Nome:</label>
+		<input type="text" class="form-control" name="p.nome" value="${p?.nome}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Preço:</label>
+		<input type="text" class="form-control" name="p.preço" value="${p?.preço}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Quantidade:</label>
+		<input type="text" class="form-control" name="p.quantidade" value="${p?.quantidade}" />
+	</div>
+	
+	
+ <div class="mb-3">
+        
+       <label for="categoria">Categoria:</label>
+            <select name="p.categoria">
+               <option value="Armazenamento">Armazenamento</option>
+               <option value="Hardware">Hardware</option>
+               <option value="Computadores">Computadores</option>
+               <option value="Softwares">Softwares</option>
+            </select>
+   </div>
+   <button type="submit">Enviar</button>
+
+
+</form>
+
+<a href="@{Produtos.listar}">
+    Voltar para a listagem
+</a>
